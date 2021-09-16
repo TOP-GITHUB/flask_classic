@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Balance de cuentas</title>
+    </head>
+    <body>
+        <header>
+            <p>Balance de gastos </p>
+        </header>
+        <section>
+            <nav>
+                <p>Inicio | Nuevo</p>
+            </nav>
+            <h1>Lista de movimientos</h1>
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>I/G</th>
+                    <th>Cantidad</th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.fecha }}</td>
+                    <td>{{ item.concepto }}</td>
+                    <td>{% if item.ingreso_gasto == 'I' %} 
+                            Ingreso 
+                        {% else %} 
+                            Gasto 
+                        {% endif %}
+                    </td>
+                    <td>{{ item.cantidad }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </section>
+        <footer>
+            © 2021 - Todos los derechos reservados
+        </footer>
+    </body>
+</html>
