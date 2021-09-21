@@ -14,7 +14,7 @@ class ListaMovimientos():
 
     def leer(self):
         self.movimientos = []
-        fichero = open(FICHERO, "r")
+        fichero = open(FICHERO, "r", encoding="utf-8") #tenemos que codificar de la misma forma HTML y Python en UTF-8
         dreader = csv.DictReader(fichero)
         for linea in dreader:
             self.movimientos.append(linea)
@@ -35,4 +35,11 @@ class ListaMovimientos():
         
         fichero.close()
 
+    def anyadir(self, valor):
+        movimiento = {}
+        movimiento['fecha'] = valor['fecha']
+        movimiento['concepto'] = valor['concepto']
+        movimiento['ingreso_gasto'] = valor['ingreso_gasto']
+        movimiento['cantidad'] = valor['cantidad']
+        self.movimientos.append(movimiento)
  

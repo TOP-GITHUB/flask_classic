@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo_pagina %} Nuevo movimiento {% endblock %}
+
+{% block contenido_pagina %}
+            <h1>Alta de movimiento</h1>
+
+            <form action="/nuevo" method="post">
+                <div class="campo-formulario">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" name="fecha" id="fecha">   
+                </div>
+                <div class="campo-formulario">
+                    <label for="concepto">Concepto:</label>
+                    <input type="text" name="concepto" id="concepto">
+                </div>
+                <div class="campo-formulario">
+                    <input type="radio" name="ingreso_gasto" id="ingreso" value="I"><span class="label">Ingreso</span>  
+                    <input type="radio" name="ingreso_gasto" id="gasto" value="G"><span class="label">Gasto</span>
+                </div>
+                <div class="campo-formulario">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="text" name="cantidad" id="cantidad">
+                </div>
+
+                <input name="submit" class="blue-button" type="submit" value="Enviar">
+ 
+            </form>
+
+
+
+{% endblock%}
